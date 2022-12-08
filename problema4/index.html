@@ -7,8 +7,66 @@
     <title>Document</title>
 </head>
 <body>
+<!--Dado un arreglo de números (cualquiera) sacar la siguiente información:
+● Cantidad de elementos del arreglo.
+● Porcentaje de números pares e impares.
+● Porcentaje de números mayores a 1000.
+● Cuál es el mayor y menor valor.
+● Asuma los siguientes indicadores: Tome en cuenta que el mayor número
+representa el 100%, indique cual es el porcentaje del número mínimo y el
+porcentaje del promedio de todos los números.-->
+
     <script>
-        console.log("hola")
+        let arr = [132,1543, 323, 23, 2, 12, 4556, 4513, 15, 31, 2358, 27, 55, 66];
+        let par = 0;
+        let impar = 0;
+        let mayorMil = 0;
+
+// Muestra la longitud de un arreglo
+
+        console.log("La cantidad de elementos del arreglo es : ", arr.length)
+
+//Muestra el porcentaje de numeros par e impar
+
+        for (let index = 0; index < arr.length; index++) {
+            const element = arr[index];
+            if(element % 2 == 0){
+                par ++
+            }else{                
+                impar ++
+            }
+        
+        }
+
+        let porcentajePar = parseFloat( par*100 / arr.length )
+        let porcentajeimpar = parseFloat(impar*100 / arr.length )
+
+        console.log(porcentajePar.toFixed(0), "% de numeros del arreglo es par ")
+        console.log(porcentajeimpar.toFixed(0), "% de numeros del arreglo es impar ")
+
+// Muestra el porcentaje de numeros mayores a 1000
+
+for (let index = 0; index < arr.length; index++) {
+    const element = arr[index];
+    if(element > 1000){
+        mayorMil ++;
+    }
+}
+    let porcentajeMayorMil = parseFloat( mayorMil*100 / arr.length )
+    console.log(porcentajeMayorMil.toFixed(0), "% de numeros del arreglo es mayor a 1000 ")
+
+    let mayor = Math.max(...arr)
+    let menor = Math.min(...arr)
+
+    console.log("El numero de mayor valor es :", mayor)
+    console.log("El numero de menor valor es :", menor)
+     
+    let porcentajeNumMenor = parseFloat( menor*10000 / mayor )
+
+    console.log("El porcentaje del numero menor es : ", porcentajeNumMenor.toFixed(0), "%")
+    
+    //let ceros = "0".repeat(mayor.toString().length)
+    //console.log(ceros.split("").map((element)=>{console.log(parseInt(element))}))
     </script>
 </body>
 </html>
